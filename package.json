@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "node-schedule": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "prettier": "2.2.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "test": "NODE_ENV=dev nodemon --exec babel-node index.js",
+    "dev": "NODE_ENV=dev nodemon --exec babel-node index.js",
+    "build": "NODE_ENV=production nodemon --exec babel-node index.js"
+  }
+}
