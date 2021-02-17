@@ -67,7 +67,7 @@ const boss = [
     name: "사르카",
     nameAbbreviation: "ㅅㄹㅋ",
     genTime: null,
-    time: 8,
+    time: 10,
   },
   {
     id: 11,
