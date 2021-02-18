@@ -5,8 +5,18 @@ import BOSS_CONFIG from "./config/boss.config";
 export const disposeMessage = async (msg) => {
   const prefix = "!"; // 명령어 구분자
   let { content, channel } = msg;
-  if (content[0] === prefix || content === `보스` || content === `ㅄ`) {
-    if (content === `${prefix}보스` || content === `보스` || content === `ㅄ`) {
+  if (
+    content[0] === prefix ||
+    content === `보스` ||
+    content === `ㅄ` ||
+    content === `ㅂㅅ`
+  ) {
+    if (
+      content === `${prefix}보스` ||
+      content === `보스` ||
+      content === `ㅄ` ||
+      content === `ㅂㅅ`
+    ) {
       // 보스 시간 확인 명령어
       channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
     } else if (content === `${prefix}초기화`) {
@@ -102,6 +112,7 @@ const cutBossTime = async ({ boss, fileName, cutTime }) => {
         fileBoss.map((item) => {
           if (item.id === boss.id) {
             item.genTime = calGenTime({ boss: boss, cutTime: cutTime });
+            item.mungCount = 0;
           }
         });
     } else {
@@ -126,6 +137,7 @@ export const noGenBoss = async ({ boss, fileName }) => {
         fileBoss.map((item) => {
           if (item.id === boss.id) {
             item.genTime = calGenTime({ boss: boss, cutTime: item.genTime });
+            item.mungCount = item.mungCount ? item.mungCount + 1 : 1;
           }
         });
       fs.writeFileSync(
@@ -163,6 +175,7 @@ const writeBossTime = async ({ boss, fileName, genTime }) => {
         fileBoss.map((item) => {
           if (item.id === boss.id) {
             item.genTime = genTime;
+            item.mungCount = 0;
           }
         });
     } else {
@@ -190,7 +203,9 @@ export const readBossTime = async ({ fileName }) => {
     fileBoss &&
       fileBoss.map((item) => {
         sendMessage += `
-${item.genTime} ${item.name}`;
+${item.genTime} ${item.name}${
+          item.mungCount > 0 ? ` (${item.mungCount}회 멍처리) ` : ""
+        }`;
       });
     sendMessage += "```";
     return fileBoss ? sendMessage : "보스 시간이 없습니다.";

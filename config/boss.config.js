@@ -5,6 +5,7 @@ const boss = [
     nameAbbreviation: "ㅌㅋ",
     genTime: null,
     time: 8,
+    mungCount: 0,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const boss = [
     nameAbbreviation: "ㅍㄹㅅ",
     genTime: null,
     time: 3,
+    mungCount: 0,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const boss = [
     nameAbbreviation: "ㅍㄴㄹㄷ",
     genTime: null,
     time: 5,
+    mungCount: 0,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const boss = [
     nameAbbreviation: "ㅂㄹㅋ",
     genTime: null,
     time: 6,
+    mungCount: 0,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const boss = [
     nameAbbreviation: "ㅂㅅㄹ",
     genTime: null,
     time: 4,
+    mungCount: 0,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const boss = [
     nameAbbreviation: "ㅇㅋㄹ",
     genTime: null,
     time: 6,
+    mungCount: 0,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const boss = [
     nameAbbreviation: "ㅊㄹㅌㅂ",
     genTime: null,
     time: 6,
+    mungCount: 0,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const boss = [
     nameAbbreviation: "ㅁㅌㄹ",
     genTime: null,
     time: 6,
+    mungCount: 0,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const boss = [
     nameAbbreviation: "ㅌㄹㅂ",
     genTime: null,
     time: 7,
+    mungCount: 0,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const boss = [
     nameAbbreviation: "ㅅㄹㅋ",
     genTime: null,
     time: 10,
+    mungCount: 0,
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ const boss = [
     nameAbbreviation: "ㅇㅋ",
     genTime: null,
     time: 8,
+    mungCount: 0,
   },
 ];
 export default boss;
