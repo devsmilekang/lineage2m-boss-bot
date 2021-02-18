@@ -6,6 +6,7 @@ const boss = [
     genTime: null,
     time: 8,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const boss = [
     genTime: null,
     time: 3,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const boss = [
     genTime: null,
     time: 5,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const boss = [
     genTime: null,
     time: 6,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const boss = [
     genTime: null,
     time: 4,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ const boss = [
     genTime: null,
     time: 6,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 7,
@@ -54,6 +60,7 @@ const boss = [
     genTime: null,
     time: 6,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const boss = [
     genTime: null,
     time: 6,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ const boss = [
     genTime: null,
     time: 7,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 10,
@@ -78,6 +87,7 @@ const boss = [
     genTime: null,
     time: 10,
     mungCount: 0,
+    memo: "",
   },
   {
     id: 11,
@@ -86,6 +96,7 @@ const boss = [
     genTime: null,
     time: 8,
     mungCount: 0,
+    memo: "",
   },
 ];
 export default boss;

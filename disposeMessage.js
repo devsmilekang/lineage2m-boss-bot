@@ -25,6 +25,28 @@ export const disposeMessage = async (msg) => {
     } else if (content === `${prefix}명령어`) {
       // 디스코드 명령어
       await sendCommandList({ channel: channel });
+    } else if (content.trim().split(" ")[0] === `${prefix}메모`) {
+      // !메모 보스명 메모내용
+      // 디스코드 명령어
+      const splitMessage = content.trim().split(" ");
+      const boss = BOSS_CONFIG.find(
+        (value) =>
+          splitMessage[1] === value.name ||
+          splitMessage[1] === value.nameAbbreviation
+      );
+      if (boss) {
+        await writeMemo({
+          msg: splitMessage.slice(2).join(" "),
+          fileName: `${channel.id}.json`,
+          boss,
+          channel,
+        });
+        channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
+      } else {
+        channel.send("메모 할 보스가 없습니다.");
+      }
+    } else if (content === `${prefix}입력가능보스`) {
+      channel.send(await readBossList());
     }
   } else {
     const splitMessage = content.trim().split(" ");
@@ -93,6 +115,29 @@ export const disposeMessage = async (msg) => {
 const resetFile = async ({ channel }) => {
   if (fs.existsSync(`./boss/${channel.id}.json`)) {
     fs.unlink(`./boss/${channel.id}.json`, function () {});
+  }
+};
+// 보스 기타사항 메모
+const writeMemo = async ({ channel, msg, boss, fileName }) => {
+  if (fs.existsSync(`./boss/${fileName}`)) {
+    const file = fs.readFileSync(`./boss/${fileName}`, {
+      encoding: "utf-8",
+    });
+    const fileBoss = JSON.parse(file);
+    if (fileBoss.find((item) => item.id === boss.id)) {
+      fileBoss &&
+        fileBoss.map((item) => {
+          if (item.id === boss.id) {
+            item.memo = msg;
+          }
+        });
+      fs.writeFileSync(
+        `./boss/${fileName}`,
+        JSON.stringify(sortByTime(fileBoss))
+      );
+    } else {
+      channel.send(`기존의 ${boss.name}이 존재하지 않습니다.`);
+    }
   }
 };
 
@@ -204,12 +249,25 @@ export const readBossTime = async ({ fileName }) => {
       fileBoss.map((item) => {
         sendMessage += `
 ${item.genTime} ${item.name}${
-          item.mungCount > 0 ? ` (${item.mungCount}회 멍처리) ` : ""
-        }`;
+          item.mungCount > 0 ? ` (${item.mungCount}회 멍처리)` : ""
+        }${item.memo ? ` ${item.memo}` : ""}`;
       });
     sendMessage += "```";
     return fileBoss ? sendMessage : "보스 시간이 없습니다.";
   }
+};
+
+// 입력가능한 보스 정보를 보여준다
+export const readBossList = async () => {
+  let message = "```";
+  BOSS_CONFIG.map((item, index) => {
+    message += `${index + 1}. 보스명 : ${item.name},  약자 : ${
+      item.nameAbbreviation
+    },  시간텀 : ${item.time}시간
+`;
+  });
+  message += "```";
+  return message;
 };
 
 // 보스 getTime에 맞춰 정렬
