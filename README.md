@@ -22,6 +22,7 @@ vi ./config/token.config.js
 ## 실행법 Docker 사용
 
 ```bash
+docker volume create boss-bot
 docker build -f Dockerfile -t  boss-bot .
-sudo docker run -it -d --name boss-bot boss-bot
+sudo docker run -itd -v boss-bot:/usr/src/app/boss --name boss-bot boss-bot
 ```
