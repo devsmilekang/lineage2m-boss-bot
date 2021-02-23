@@ -9,7 +9,6 @@ client.on("ready", () => {
 });
 
 client.on("message", async (msg) => {
-  //813591817697624068
   if (msg.member.voice.channel) {
     await msg.member.voice.channel.join();
   }

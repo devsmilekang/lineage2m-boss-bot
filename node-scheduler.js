@@ -1,8 +1,8 @@
 import schedule from "node-schedule";
-// const Discord = require("discord.js");
-// const client = new Discord.Client();
 import fs from "fs";
 import { noGenBoss, readBossTime } from "./disposeMessage";
+import BOSS_CONFIG from "./config/boss.config";
+
 module.exports = (client) => {
   schedule.scheduleJob("*/1 * * * *", async function () {
     await autoSkipTime(client);
@@ -26,15 +26,23 @@ const noticeBoss = async ({ client, minute }) => {
           }분 전 입니다.`
           // { tts: minute * -1 === 1 ? true : false }
         );
-        if (minute * -1 === 1) {
-          await sendAudio({ client, channelId });
+        console.log(noticeBoss);
+        if (minute * -1 === 1 || minute * -1 === 5) {
+          await sendAudio({
+            client,
+            channelId,
+            noticeBoss: BOSS_CONFIG.filter(
+              (item) => item.id === noticeBoss[0].id
+            )[0],
+            minute: minute * -1,
+          });
         }
       }
     }
   });
 };
 
-const sendAudio = async ({ client, channelId }) => {
+const sendAudio = async ({ client, channelId, noticeBoss, minute }) => {
   const channelInfo = await client.channels.cache.get(channelId);
 
   const voiceChannelId = channelInfo.guild.channels.cache
@@ -42,7 +50,17 @@ const sendAudio = async ({ client, channelId }) => {
     .map((c) => c.id)[0];
 
   const connection = await client.channels.cache.get(voiceChannelId).join();
-  const dispatcher = connection.play("./audio/before_1_minute.mp3");
+  console.log(noticeBoss);
+  const dispatcher = connection.play(
+    noticeBoss.audioUrl
+      ? `${noticeBoss.audioUrl}_0${minute}.mp3`
+      : `./audio/before_${minute}_minute.mp3`
+  );
+  console.log(
+    noticeBoss.audioUrl
+      ? `${noticeBoss.audioUrl}_0${minute}.mp3`
+      : `./audio/before_${minute}_minute.mp3`
+  );
 
   dispatcher.on("start", () => {
     console.log("audio.mp3 is now playing!");

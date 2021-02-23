@@ -7,6 +7,7 @@ const boss = [
     time: 8,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/1",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const boss = [
     time: 3,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/15",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const boss = [
     time: 5,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/31",
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/30",
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const boss = [
     time: 4,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/11",
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/17",
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/10",
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/29",
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ const boss = [
     time: 7,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/34",
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/24",
   },
   {
     id: 11,
@@ -97,6 +107,7 @@ const boss = [
     time: 8,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/21",
   },
   {
     id: 12,
@@ -106,6 +117,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/2",
   },
   {
     id: 13,
@@ -115,6 +127,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/3",
   },
   {
     id: 14,
@@ -124,6 +137,7 @@ const boss = [
     time: 8,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/4",
   },
   {
     id: 15,
@@ -133,6 +147,7 @@ const boss = [
     time: 7,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/5",
   },
   {
     id: 16,
@@ -142,6 +157,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/8",
   },
   {
     id: 17,
@@ -151,6 +167,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/12",
   },
   {
     id: 18,
@@ -160,6 +177,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/13",
   },
   {
     id: 19,
@@ -169,6 +187,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/14",
   },
   {
     id: 20,
@@ -178,6 +197,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/16",
   },
   {
     id: 21,
@@ -187,6 +207,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/18",
   },
   {
     id: 22,
@@ -196,6 +217,7 @@ const boss = [
     time: 8,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/19",
   },
   {
     id: 23,
@@ -205,6 +227,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/20",
   },
   {
     id: 24,
@@ -214,6 +237,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/22",
   },
   {
     id: 25,
@@ -223,6 +247,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/23",
   },
   {
     id: 26,
@@ -232,6 +257,7 @@ const boss = [
     time: 8,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/25",
   },
   {
     id: 27,
@@ -241,6 +267,7 @@ const boss = [
     time: 7,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/26",
   },
   {
     id: 28,
@@ -250,6 +277,7 @@ const boss = [
     time: 10,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/27",
   },
   {
     id: 29,
@@ -259,6 +287,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/28",
   },
   {
     id: 30,
@@ -268,6 +297,7 @@ const boss = [
     time: 9,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/32",
   },
   {
     id: 31,
@@ -277,6 +307,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/33",
   },
   {
     id: 32,
@@ -286,6 +317,7 @@ const boss = [
     time: 9,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/35",
   },
   {
     id: 33,
@@ -295,6 +327,7 @@ const boss = [
     time: 12,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/36",
   },
   {
     id: 34,
@@ -304,6 +337,7 @@ const boss = [
     time: 11,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/43",
   },
   {
     id: 35,
@@ -313,6 +347,7 @@ const boss = [
     time: 6,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/44",
   },
   {
     id: 36,
@@ -322,6 +357,7 @@ const boss = [
     time: 9,
     mungCount: 0,
     memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/45",
   },
 ];
 export default boss;
