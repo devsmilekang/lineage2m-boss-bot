@@ -17,17 +17,18 @@ const noticeBoss = async ({ client, minute }) => {
     for (let fileName of files) {
       const boss = JSON.parse(fs.readFileSync(`./boss/${fileName}`));
       const noticeBoss = pickTimeBoss({ boss, minutesGap: minute });
-      const channelId = fileName.replace(".json", "");
+
       if (noticeBoss.length > 0) {
+        const channelId = fileName.replace(".json", "");
         client.channels.cache.get(channelId).send(
           `${noticeBoss.map((item) => item.name).join(",")} ${
             minute * -1
           }분 전 입니다.`
           // { tts: minute * -1 === 1 ? true : false }
         );
-      }
-      if (minute * -1 === 1) {
-        await sendAudio({ client, channelId });
+        if (minute * -1 === 1) {
+          await sendAudio({ client, channelId });
+        }
       }
     }
   });
