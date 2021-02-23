@@ -27,7 +27,6 @@ const noticeBoss = async ({ client, minute }) => {
         );
       }
       if (minute * -1 === 1) {
-        console.log("a");
         await sendAudio({ client, channelId });
       }
     }
@@ -42,7 +41,6 @@ const sendAudio = async ({ client, channelId }) => {
     .map((c) => c.id)[0];
 
   const connection = await client.channels.cache.get(voiceChannelId).join();
-  console.log(channelId);
   const dispatcher = connection.play("./audio/before_1_minute.mp3");
 
   dispatcher.on("start", () => {
