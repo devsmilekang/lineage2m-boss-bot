@@ -17,8 +17,8 @@ const noticeBoss = async ({ client, minute }) => {
     for (let fileName of files) {
       const boss = JSON.parse(fs.readFileSync(`./boss/${fileName}`));
       const noticeBoss = pickTimeBoss({ boss, minutesGap: minute });
+      const channelId = fileName.replace(".json", "");
       if (noticeBoss.length > 0) {
-        const channelId = fileName.replace(".json", "");
         client.channels.cache.get(channelId).send(
           `${noticeBoss.map((item) => item.name).join(",")} ${
             minute * -1
@@ -27,6 +27,7 @@ const noticeBoss = async ({ client, minute }) => {
         );
       }
       if (minute * -1 === 1) {
+        console.log("a");
         await sendAudio({ client, channelId });
       }
     }
@@ -34,27 +35,26 @@ const noticeBoss = async ({ client, minute }) => {
 };
 
 const sendAudio = async ({ client, channelId }) => {
-  if (msg.content === "1분") {
-    const channelInfo = await client.channels.cache.get(channelId);
+  const channelInfo = await client.channels.cache.get(channelId);
 
-    const voiceChannelId = channelInfo.guild.channels.cache
-      .filter((c) => c.type === "voice")
-      .map((c) => c.id)[0];
+  const voiceChannelId = channelInfo.guild.channels.cache
+    .filter((c) => c.type === "voice")
+    .map((c) => c.id)[0];
 
-    const connection = await client.channels.cache.get(voiceChannelId).join();
-    const dispatcher = connection.play("./audio/before_1_minute.mp3");
+  const connection = await client.channels.cache.get(voiceChannelId).join();
+  console.log(channelId);
+  const dispatcher = connection.play("./audio/before_1_minute.mp3");
 
-    dispatcher.on("start", () => {
-      console.log("audio.mp3 is now playing!");
-    });
+  dispatcher.on("start", () => {
+    console.log("audio.mp3 is now playing!");
+  });
 
-    dispatcher.on("finish", () => {
-      console.log("audio.mp3 has finished playing!");
-    });
+  dispatcher.on("finish", () => {
+    console.log("audio.mp3 has finished playing!");
+  });
 
-    // Always remember to handle errors appropriately!
-    dispatcher.on("error", console.error);
-  }
+  // Always remember to handle errors appropriately!
+  dispatcher.on("error", console.error);
 };
 
 // 5분이 지나면 자동 멍 처리 해준다
