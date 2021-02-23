@@ -24,7 +24,8 @@ const noticeBoss = async ({ client, minute }) => {
           .send(
             `${noticeBoss.map((item) => item.name).join(",")} ${
               minute * -1
-            }분 전 입니다.`
+            }분 전 입니다.`,
+            { tts: minute * -1 === 1 ? true : false }
           );
       }
     }
