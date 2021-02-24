@@ -1,5 +1,4 @@
 import fs from "fs";
-import boss from "./config/boss.config";
 import BOSS_CONFIG from "./config/boss.config";
 
 export const disposeMessage = async (msg) => {
@@ -19,21 +18,11 @@ export const disposeMessage = async (msg) => {
     ) {
       // 보스 시간 확인 명령어
       channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
-    } else if (content === `${prefix}초기화`) {
-      // 보스 초기화
-      await resetFile({ channel: channel });
-    } else if (content === `${prefix}명령어`) {
-      // 디스코드 명령어
-      await sendCommandList({ channel: channel });
     } else if (content.trim().split(" ")[0] === `${prefix}메모`) {
       // !메모 보스명 메모내용
       // 디스코드 명령어
       const splitMessage = content.trim().split(" ");
-      const boss = BOSS_CONFIG.find(
-        (value) =>
-          splitMessage[1] === value.name ||
-          splitMessage[1] === value.nameAbbreviation
-      );
+      const boss = findBoss(splitMessage[1]);
       if (boss) {
         await writeMemo({
           msg: splitMessage.slice(2).join(" "),
@@ -45,6 +34,19 @@ export const disposeMessage = async (msg) => {
       } else {
         channel.send("메모 할 보스가 없습니다.");
       }
+    } else if (content === `${prefix}초기화`) {
+      // 보스 초기화
+      await resetFile({ channel });
+    } else if (content.trim().split(" ")[0] === `${prefix}삭제`) {
+      // 특정보스 삭제
+      const boss = findBoss(content.trim().split(" ")[1]);
+      if (boss) {
+        await deleteBoss({ channel, boss, fileName: `${channel.id}.json` });
+        channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
+      }
+    } else if (content === `${prefix}명령어`) {
+      // 디스코드 명령어
+      await sendCommandList({ channel });
     } else if (content === `${prefix}입력가능보스`) {
       channel.send(await readBossList());
     }
@@ -54,12 +56,7 @@ export const disposeMessage = async (msg) => {
       if (!isNaN(parseInt(splitMessage[0]))) {
         // 보스 시간 직접 적기
         // 맨 앞이 숫자인지 체크
-        const boss = BOSS_CONFIG.find(
-          (value) =>
-            splitMessage[1] === value.name ||
-            splitMessage[1] === value.nameAbbreviation
-        );
-
+        const boss = findBoss(splitMessage[1]);
         if (boss) {
           await writeBossTime({
             boss: boss,
@@ -73,11 +70,7 @@ export const disposeMessage = async (msg) => {
       } else {
         if (splitMessage[1] === "컷" || splitMessage[1] === "ㅋ") {
           // 보스 컷 적기
-          const boss = BOSS_CONFIG.find(
-            (value) =>
-              splitMessage[0] === value.name ||
-              splitMessage[0] === value.nameAbbreviation
-          );
+          const boss = findBoss(splitMessage[0]);
           if (boss) {
             await cutBossTime({
               boss: boss,
@@ -91,11 +84,7 @@ export const disposeMessage = async (msg) => {
             );
           }
         } else if (splitMessage[1] === "멍" || splitMessage[1] === "ㅁ") {
-          const boss = BOSS_CONFIG.find(
-            (value) =>
-              splitMessage[0] === value.name ||
-              splitMessage[0] === value.nameAbbreviation
-          );
+          const boss = findBoss(splitMessage[0]);
           if (boss) {
             await noGenBoss({
               boss,
@@ -117,6 +106,28 @@ const resetFile = async ({ channel }) => {
     fs.unlink(`./boss/${channel.id}.json`, function () {});
   }
 };
+
+//입력된 보스와 같은 보스를 삭제한다.
+const deleteBoss = async ({ channel, boss, fileName }) => {
+  if (fs.existsSync(`./boss/${fileName}`)) {
+    const file = fs.readFileSync(`./boss/${fileName}`, {
+      encoding: "utf-8",
+    });
+    const fileBoss = JSON.parse(file);
+    if (fileBoss.find((item) => item.id === boss.id)) {
+      console.log(fileBoss.filter((item) => item.id !== boss.id));
+      fs.writeFileSync(
+        `./boss/${fileName}`,
+        JSON.stringify(
+          sortByTime(fileBoss.filter((item) => item.id !== boss.id))
+        )
+      );
+    } else {
+      channel.send(`기존의 ${boss.name}이 존재하지 않습니다.`);
+    }
+  }
+};
+
 // 보스 기타사항 메모
 const writeMemo = async ({ channel, msg, boss, fileName }) => {
   if (fs.existsSync(`./boss/${fileName}`)) {
@@ -296,4 +307,11 @@ const sendCommandList = async ({ channel }) => {
   message += fs.readFileSync(`./config/commandList.txt`);
   message += "```";
   channel.send(message);
+};
+
+//입력과 일치하는 보스 찾기
+const findBoss = (inputBoss) => {
+  return BOSS_CONFIG.find(
+    (value) => inputBoss === value.name || inputBoss === value.nameAbbreviation
+  );
 };
