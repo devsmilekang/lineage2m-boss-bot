@@ -47,8 +47,11 @@ export const disposeMessage = async (msg) => {
     } else if (content === `${prefix}명령어`) {
       // 디스코드 명령어
       await sendCommandList({ channel });
-    } else if (content === `${prefix}입력가능보스`) {
+    } else if (content === `${prefix}보스정보`) {
       channel.send(await readBossList());
+    } else if (content.trim().split(" ")[0] === `${prefix}사다리`) {
+      const targetArray = content.split(" ").slice(1);
+      channel.send(await randomDrop(targetArray));
     }
   } else {
     const splitMessage = content.trim().split(" ");
@@ -314,4 +317,24 @@ const findBoss = (inputBoss) => {
   return BOSS_CONFIG.find(
     (value) => inputBoss === value.name || inputBoss === value.nameAbbreviation
   );
+};
+
+//아이템 롯하기
+const randomDrop = (arr) => {
+  const result = [];
+  while (1) {
+    if (arr.length === 0) {
+      break;
+    }
+    const pick = Math.floor(Math.random() * Math.floor(arr.length));
+    result.push(arr[pick]);
+    arr = arr.filter((item) => arr[pick] !== item);
+  }
+  let msg = "```";
+  result.map((item, i) => {
+    msg += `${i + 1}.${item}
+`;
+  });
+  msg += "```";
+  return msg;
 };
