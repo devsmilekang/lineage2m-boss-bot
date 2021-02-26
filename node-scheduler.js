@@ -92,9 +92,9 @@ const autoSkipTime = async (client) => {
               .map((item) => item.name)
               .join(",")} 멍처리 되었습니다.`
           );
-        client.channels.cache
-          .get(channelId)
-          .send(await readBossTime({ fileName, boss: skipTimeBoss }));
+        // client.channels.cache
+        //   .get(channelId)
+        //   .send(await readBossTime({ fileName, boss: skipTimeBoss }));
       }
     }
   });

@@ -265,8 +265,6 @@ export const readBossTime = async ({ fileName, boss }) => {
     if (boss) {
       fileBoss = fileBoss.filter((item) => item.id === boss.id);
     }
-    console.log(boss);
-    console.log(fileBoss);
     let sendMessage = "```";
     fileBoss &&
       fileBoss.map((item) => {
