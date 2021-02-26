@@ -2,7 +2,7 @@ const boss = [
   {
     id: 1,
     name: "탈킨",
-    nameAbbreviation: "ㅌㅋ",
+    nameAbbreviation: ["ㅌㅋ"],
     genTime: null,
     time: 8,
     mungCount: 0,
@@ -12,7 +12,7 @@ const boss = [
   {
     id: 2,
     name: "펠리스",
-    nameAbbreviation: "ㅍㄹㅅ",
+    nameAbbreviation: ["ㅍㄽ", "ㅍㄹㅅ"],
     genTime: null,
     time: 3,
     mungCount: 0,
@@ -22,7 +22,7 @@ const boss = [
   {
     id: 3,
     name: "판나로드",
-    nameAbbreviation: "ㅍㄴㄹㄷ",
+    nameAbbreviation: ["ㅍㄴㄹㄷ"],
     genTime: null,
     time: 5,
     mungCount: 0,
@@ -32,7 +32,7 @@ const boss = [
   {
     id: 4,
     name: "브래카",
-    nameAbbreviation: "ㅂㄹㅋ",
+    nameAbbreviation: ["ㅂㄹㅋ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -42,7 +42,7 @@ const boss = [
   {
     id: 5,
     name: "바실라",
-    nameAbbreviation: "ㅂㅅㄹ",
+    nameAbbreviation: ["ㅂㅅㄹ", "ㅄㄹ"],
     genTime: null,
     time: 4,
     mungCount: 0,
@@ -52,7 +52,7 @@ const boss = [
   {
     id: 6,
     name: "엔쿠라",
-    nameAbbreviation: "ㅇㅋㄹ",
+    nameAbbreviation: ["ㅇㅋㄹ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -62,7 +62,7 @@ const boss = [
   {
     id: 7,
     name: "체르투바",
-    nameAbbreviation: "ㅊㄹㅌㅂ",
+    nameAbbreviation: ["ㅊㄾㅂ", "ㅊㄹㅌㅂ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -72,7 +72,7 @@ const boss = [
   {
     id: 8,
     name: "마투라",
-    nameAbbreviation: "ㅁㅌㄹ",
+    nameAbbreviation: ["ㅁㅌㄹ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -82,7 +82,7 @@ const boss = [
   {
     id: 9,
     name: "트롬바",
-    nameAbbreviation: "ㅌㄹㅂ",
+    nameAbbreviation: ["ㅌㄼ", "ㅌㄹㅂ"],
     genTime: null,
     time: 7,
     mungCount: 0,
@@ -92,7 +92,7 @@ const boss = [
   {
     id: 10,
     name: "사르카",
-    nameAbbreviation: "ㅅㄹㅋ",
+    nameAbbreviation: ["ㅅㄹㅋ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -102,7 +102,7 @@ const boss = [
   {
     id: 11,
     name: "오크",
-    nameAbbreviation: "ㅇㅋ",
+    nameAbbreviation: ["ㅇㅋ"],
     genTime: null,
     time: 8,
     mungCount: 0,
@@ -112,7 +112,7 @@ const boss = [
   {
     id: 12,
     name: "셀루",
-    nameAbbreviation: "ㅅㄹ",
+    nameAbbreviation: ["ㅅㄹ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -122,7 +122,7 @@ const boss = [
   {
     id: 13,
     name: "발보",
-    nameAbbreviation: "ㅂㅂ",
+    nameAbbreviation: ["ㅂㅂ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -132,7 +132,7 @@ const boss = [
   {
     id: 14,
     name: "티미니엘",
-    nameAbbreviation: "ㅌㅁㄴㅇ",
+    nameAbbreviation: ["ㅌㅁㄴㅇ"],
     genTime: null,
     time: 8,
     mungCount: 0,
@@ -142,7 +142,7 @@ const boss = [
   {
     id: 15,
     name: "레피로",
-    nameAbbreviation: "ㄹㅍㄹ",
+    nameAbbreviation: ["ㄿㄹ", "ㄹㅍㄹ"],
     genTime: null,
     time: 7,
     mungCount: 0,
@@ -152,7 +152,7 @@ const boss = [
   {
     id: 16,
     name: "코룬",
-    nameAbbreviation: "ㅋㄹ",
+    nameAbbreviation: ["ㅋㄹ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -162,7 +162,7 @@ const boss = [
   {
     id: 17,
     name: "켈소스",
-    nameAbbreviation: "ㅋㅅㅅ",
+    nameAbbreviation: ["ㅋㅅㅅ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -172,7 +172,7 @@ const boss = [
   {
     id: 18,
     name: "사반",
-    nameAbbreviation: "ㅅㅂ",
+    nameAbbreviation: ["ㅅㅂ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -182,7 +182,7 @@ const boss = [
   {
     id: 19,
     name: "여왕개미",
-    nameAbbreviation: "ㅇㅇㄱㅁ",
+    nameAbbreviation: ["ㅇㅇㄱㅁ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -192,7 +192,7 @@ const boss = [
   {
     id: 20,
     name: "탈라킨",
-    nameAbbreviation: "ㅌㄹㅋ",
+    nameAbbreviation: ["ㅌㄹㅋ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -202,7 +202,7 @@ const boss = [
   {
     id: 21,
     name: "판드라이드",
-    nameAbbreviation: "ㅍㄷㄹㅇㄷ",
+    nameAbbreviation: ["ㅍㄷㄹㅇㄷ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -212,7 +212,7 @@ const boss = [
   {
     id: 22,
     name: "크루마",
-    nameAbbreviation: "ㅋㄹㅁ",
+    nameAbbreviation: ["ㅋㄹㅁ", "ㅋㄻ"],
     genTime: null,
     time: 8,
     mungCount: 0,
@@ -222,7 +222,7 @@ const boss = [
   {
     id: 23,
     name: "템페스트",
-    nameAbbreviation: "ㅌㅍㅅㅌ",
+    nameAbbreviation: ["ㅌㅍㅅㅌ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -232,7 +232,7 @@ const boss = [
   {
     id: 24,
     name: "카탄",
-    nameAbbreviation: "ㅋㅌ",
+    nameAbbreviation: ["ㅋㅌ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -242,7 +242,7 @@ const boss = [
   {
     id: 25,
     name: "코어수스켑터",
-    nameAbbreviation: "ㅋㅇㅅㅅㅋㅌ",
+    nameAbbreviation: ["코어", "ㅋㅇ", "ㅋㅇㅅㅅㅋㅌ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -252,7 +252,7 @@ const boss = [
   {
     id: 26,
     name: "티미트리스",
-    nameAbbreviation: "ㅌㅁㅌㄹㅅ",
+    nameAbbreviation: ["ㅌㅁㅌㄽ", "ㅌㅁㅌㄹㅅ"],
     genTime: null,
     time: 8,
     mungCount: 0,
@@ -262,7 +262,7 @@ const boss = [
   {
     id: 27,
     name: "스탄",
-    nameAbbreviation: "ㅅㅌ",
+    nameAbbreviation: ["ㅅㅌ"],
     genTime: null,
     time: 7,
     mungCount: 0,
@@ -272,7 +272,7 @@ const boss = [
   {
     id: 28,
     name: "메두사",
-    nameAbbreviation: "ㅁㄷㅅ",
+    nameAbbreviation: ["ㅁㄷㅅ"],
     genTime: null,
     time: 10,
     mungCount: 0,
@@ -282,7 +282,7 @@ const boss = [
   {
     id: 29,
     name: "블랙릴리",
-    nameAbbreviation: "ㅂㄹㄹㄹ",
+    nameAbbreviation: ["ㅂㄹㄹㄹ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -292,7 +292,7 @@ const boss = [
   {
     id: 30,
     name: "베히모스",
-    nameAbbreviation: "ㅂㅎㅁㅅ",
+    nameAbbreviation: ["ㅂㅎㅁㅅ"],
     genTime: null,
     time: 9,
     mungCount: 0,
@@ -302,7 +302,7 @@ const boss = [
   {
     id: 31,
     name: "드래곤비스트",
-    nameAbbreviation: "ㄷㄹㄱㅂㅅㅌ",
+    nameAbbreviation: ["드비", "ㄷㅂ", "ㄷㄹㄱㅂㅅㅌ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -312,7 +312,7 @@ const boss = [
   {
     id: 32,
     name: "가레스",
-    nameAbbreviation: "ㄱㄹㅅ",
+    nameAbbreviation: ["ㄱㄽ", "ㄱㄹㅅ"],
     genTime: null,
     time: 9,
     mungCount: 0,
@@ -322,7 +322,7 @@ const boss = [
   {
     id: 33,
     name: "사무엘",
-    nameAbbreviation: "ㅅㅁㅇ",
+    nameAbbreviation: ["ㅅㅁㅇ"],
     genTime: null,
     time: 12,
     mungCount: 0,
@@ -332,7 +332,7 @@ const boss = [
   {
     id: 34,
     name: "망각의거울",
-    nameAbbreviation: "ㅁㄱㅇㄱㅇ",
+    nameAbbreviation: ["ㅁㄱ", "망각", "ㅁㄱㅇㄱㅇ"],
     genTime: null,
     time: 11,
     mungCount: 0,
@@ -342,7 +342,7 @@ const boss = [
   {
     id: 35,
     name: "히실로메",
-    nameAbbreviation: "ㅎㅅㄹㅁ",
+    nameAbbreviation: ["ㅎㅅㄻ", "ㅎㅅㄹㅁ"],
     genTime: null,
     time: 6,
     mungCount: 0,
@@ -352,12 +352,32 @@ const boss = [
   {
     id: 36,
     name: "란도르",
-    nameAbbreviation: "ㄹㄷㄹ",
+    nameAbbreviation: ["ㄹㄷㄹ"],
     genTime: null,
     time: 9,
     mungCount: 0,
     memo: "",
     audioUrl: "http://timebot.co.kr/sound/lin2m/45",
+  },
+  {
+    id: 37,
+    name: "카브리오",
+    nameAbbreviation: ["ㅋㅂㄹㅇ"],
+    genTime: null,
+    time: 12,
+    mungCount: 0,
+    memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/152",
+  },
+  {
+    id: 38,
+    name: "글라키",
+    nameAbbreviation: ["ㄱㄹㅋ"],
+    genTime: null,
+    time: 8,
+    mungCount: 0,
+    memo: "",
+    audioUrl: "http://timebot.co.kr/sound/lin2m/46",
   },
 ];
 export default boss;

@@ -275,9 +275,9 @@ ${item.genTime} ${item.name}${
 export const readBossList = async () => {
   let message = "```";
   BOSS_CONFIG.map((item, index) => {
-    message += `${index + 1}. 보스명 : ${item.name},  약자 : ${
-      item.nameAbbreviation
-    },  시간텀 : ${item.time}시간
+    message += `${index + 1}. 보스명 : ${
+      item.name
+    },  약자 : [${item.nameAbbreviation.join(",")}],  시간텀 : ${item.time}시간
 `;
   });
   message += "```";
@@ -315,7 +315,8 @@ const sendCommandList = async ({ channel }) => {
 //입력과 일치하는 보스 찾기
 const findBoss = (inputBoss) => {
   return BOSS_CONFIG.find(
-    (value) => inputBoss === value.name || inputBoss === value.nameAbbreviation
+    (value) =>
+      inputBoss === value.name || value.nameAbbreviation.includes(inputBoss)
   );
 };
 
