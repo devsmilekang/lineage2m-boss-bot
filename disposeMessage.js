@@ -30,7 +30,9 @@ export const disposeMessage = async (msg) => {
           boss,
           channel,
         });
-        channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
+        channel.send(
+          await readBossTime({ fileName: `${channel.id}.json`, boss })
+        );
       } else {
         channel.send("메모 할 보스가 없습니다.");
       }
@@ -66,7 +68,9 @@ export const disposeMessage = async (msg) => {
             fileName: `${channel.id}.json`,
             genTime: splitMessage[0].toString().padStart(4, "0"),
           });
-          channel.send(await readBossTime({ fileName: `${channel.id}.json` }));
+          channel.send(
+            await readBossTime({ fileName: `${channel.id}.json`, boss })
+          );
         } else {
           channel.send("보스가 없습니다.");
         }
@@ -83,7 +87,7 @@ export const disposeMessage = async (msg) => {
                 new Date().getMinutes().toString().padStart(2, "0"),
             });
             channel.send(
-              await readBossTime({ fileName: `${channel.id}.json` })
+              await readBossTime({ fileName: `${channel.id}.json`, boss })
             );
           }
         } else if (splitMessage[1] === "멍" || splitMessage[1] === "ㅁ") {
@@ -94,7 +98,7 @@ export const disposeMessage = async (msg) => {
               fileName: `${channel.id}.json`,
             });
             channel.send(
-              await readBossTime({ fileName: `${channel.id}.json` })
+              await readBossTime({ fileName: `${channel.id}.json`, boss })
             );
           }
         }
@@ -250,14 +254,19 @@ const writeBossTime = async ({ boss, fileName, genTime }) => {
 };
 
 // 보스시간 읽고 알림
-export const readBossTime = async ({ fileName }) => {
+export const readBossTime = async ({ fileName, boss }) => {
   if (!fs.existsSync(`./boss/${fileName}`)) {
     return "보스 시간이 존재하지 않습니다.";
   } else {
     const file = fs.readFileSync(`./boss/${fileName}`, {
       encoding: "utf-8",
     });
-    const fileBoss = JSON.parse(file);
+    let fileBoss = JSON.parse(file);
+    if (boss) {
+      fileBoss = fileBoss.filter((item) => item.id === boss.id);
+    }
+    console.log(boss);
+    console.log(fileBoss);
     let sendMessage = "```";
     fileBoss &&
       fileBoss.map((item) => {
