@@ -26,7 +26,6 @@ const noticeBoss = async ({ client, minute }) => {
           }분 전 입니다.`
           // { tts: minute * -1 === 1 ? true : false }
         );
-        console.log(noticeBoss);
         if (minute * -1 === 1 || minute * -1 === 5) {
           await sendAudio({
             client,
@@ -95,7 +94,7 @@ const autoSkipTime = async (client) => {
           );
         client.channels.cache
           .get(channelId)
-          .send(await readBossTime({ fileName }));
+          .send(await readBossTime({ fileName, boss: skipTimeBoss }));
       }
     }
   });
